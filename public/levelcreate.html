@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head><title>Level Editor</title><style>
+    #grid,td{
+  border: 1px solid;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+.choice{
+  border-color:black;
+  width:45px;
+  height:30px;
+}
+    </style><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script> </head>
+  <body>
+    <h1>Level Editor</h1>
+    <p>Welcome to the Level Editor! Here, you can design and share a level.</p>
+    <form name="f" action="/" method="GET">
+    <input type="text" name="code" placeholder="Level Code" onchange="setEditor(dataToArray(document.f.code.value))">
+    <input type="text" name="url" placeholder="Level Name">
+    <input type="password" name="pw" placeholder="Editing Password (Password to update your level)" size=15>
+    <input type="button" onclick="updateData();submitData();" value="Post level">
+    <input type="button" value="Get Level Code" onclick="updateData();">
+    <br><br>
+    <input type="text" placeholder="Level to Edit" name="name"><input type="button" onclick="getLevel();" value="Edit Level with Level Name">
+    <br><br><br>
+    Extra Options<br>
+    Platform Color (Select for custom color, otherwise random):<input type="checkbox" value="0" name="randomcolor" id="rc" onclick="if(document.getElementById('rc').checked){document.f.color.style.display='inline';}else{document.f.color.style.display='none';}"> <input type="color" name="color" style="display:none;" value="#000000">
+    <br>Jump Height: <input type="range" min="0" max="10" value="10" id="gravity">
+    <br>Side-to-side speed: <input type="range" min="3" max="5" value="4" id="side">
+    </form>
+    <table>
+      <tr>
+        <td class="choice" width=10 onclick="currentColor=0;updateStuff();" style="background-color:white;"></td>
+        <td class="choice" onclick="currentColor=1;updateStuff();" style="background-color:black;"></td>
+        <td class="choice" onclick="currentColor=2;updateStuff();" style="background-color:blue;"></td>
+        <td class="choice" onclick="currentColor=3;updateStuff();" style="background-color:red;"></td>
+        <td class="choice" onclick="currentColor=4;updateStuff();" style="background-color:green;"></td>
+        <td class="choice" onclick="currentColor=5;updateStuff();" style="background-color:brown;"></td>
+        <td class="choice" onclick="currentColor=6;updateStuff();" style="background-color:pink;"></td>
+        <td class="choice" onclick="currentColor=7;updateStuff();" style="background-color:gold"></td>
+      </tr>
+      <tr><td style="background-color:black;height:15px;" id="colorThing" colspan=8></td></tr>
+    </table>
+    <script src="/levelcreate.js">
+      
+    </script>
+  </body>
+</html>

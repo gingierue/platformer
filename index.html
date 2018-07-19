@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Platformer Jump</title>
+    
+  </head>
+  <body onload="setLevel();">
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <h1>Platformer Jump: Make, play, and share platforming levels!</h1>
+    <h2><br><a href="/editor">Level Editor (Beta)</a>
+    <br><a href="/levels">See All Levels</a>
+    <br><a href="/help">How to play</a></h2>
+    <canvas id="tutorial" width=500 height=500 onclick="toggleGame();"></canvas>
+    <form name="f">
+      <input type="text" name="code" placeholder="Level Code">
+      <input type="button" name="buttonthing" value="Load Level from Code" onclick="setupWithArray(document.f.code.value);">
+    <br><br>
+      <input type="text" name="name" placeholder="Level Name">
+      <input type="button" name="button" value="Load Level from Name" onclick="getLevel();">
+    </form>
+    <script src="client.js"></script>
+  </body>
+</html>

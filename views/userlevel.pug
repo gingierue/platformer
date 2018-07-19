@@ -1,0 +1,11 @@
+extends level.pug
+
+block titleThing
+  h1: span= title
+
+block links
+  div(class="list-group")
+    a(href="/levels" class="list-group-item list-group-item-action") See all levels
+    a(href="/editor" class="list-group-item list-group-item-action") Make a level
+    a(href= linkToEdit class="list-group-item list-group-item-action") Edit this level
+  

@@ -1,0 +1,25 @@
+html
+  head
+    include ./header-mixin.pug
+    +header
+    title= title
+  body(onload= onloadThing)
+    script(src='/client.js')
+    div(class="jumbotron text-center")
+      block titleThing
+    div(class="container-fluid text-center")
+      div(class="row")
+        div(class="col")
+          block info
+        div(class="col")
+          canvas(id='tutorial' width='500' height='500' onclick='toggleGame();')
+          p(id="coinData")
+            span(style="color:gold;font-weight:thick;font-size:2em;text-transform:uppercase;") Coins:
+            span(id="numCoins" style="text-shadow:2px 2px 3px #666666;font-size:1.5em;") 0 
+        div(class="col")
+          block links
+    form(name='f')
+      input(type='text' name='name' placeholder='Level Name')
+      input(type='button' name='button' value='Load Level from Name' onclick='getLevel();')
+      br
+      block levelCode
